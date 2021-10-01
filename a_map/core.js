@@ -1,19 +1,21 @@
+//Para comprobar los test: npm run test:map
 function multiplyBy10(array) {
-  // your code here
+  return array.map((element) => element*10)
+}
+//[1,2,3] => [3,1,2]
+function shiftRight(array) {
+  return array.map( (element, i, arr) => {
+    return arr[(i + 2) % arr.length]
+  }) 
 }
 
-function shiftRight(array) {
-  // your code here
-}
-a
 function onlyVowels(array) {
-  // your code here
+  return array.map((element) => element.match(/[aeiou]/g).join(""))
 }
 
 function doubleMatrix(array) {
-  // your code here
+  return array.map((arr) => arr.map((element) => element*2))
 }
-
 
 
 module.exports = {
