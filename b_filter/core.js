@@ -1,18 +1,19 @@
 function onlyEven(array) {
-  // your code here
+  return array.filter((element) => element % 2 == 0)
 }
 
 function onlyOneWord(array) {
-  // your code here
+  return array.filter((element) => !/\s/.test(element))
 }
 
 function positiveRowsOnly(array) {
-  // your code here
+  return array.filter((arr) => arr.every((integer) => integer > 0))
 }
 
 function allSameVowels(array) {
-  // your code here
+  return array.filter((word) => word.match(/[aeiou]/g).every((letter) => letter === word.match(/[aeiou]/g)[0]))
 }
+
 
 module.exports = {
   onlyEven,
