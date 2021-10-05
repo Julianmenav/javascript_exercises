@@ -4,7 +4,7 @@ const data = require('./data');
 
 describe('Zoo', function() {
   describe('#entryCalculator()', function() {
-    it.only('returns 0 if no arguments passed in', function() {
+    it('returns 0 if no arguments passed in', function() {
       console.log(data.animals.map(console.log));
       const actual = zoo.entryCalculator();
       assert.equal(actual, 0);
@@ -40,8 +40,8 @@ describe('Zoo', function() {
     });
 
     it('with a single day entered, returns only that day in a more human readable format', function() {
-      const actual = zoo.schedule('Monday');
-      const expected = {
+      let actual = zoo.schedule('Monday');
+      let expected = {
         Monday: 'CLOSED'
       };
 
