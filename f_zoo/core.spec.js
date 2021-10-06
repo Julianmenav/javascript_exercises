@@ -75,8 +75,8 @@ describe('Zoo', function() {
     });
 
     it('with the name of an animal species, returns only the count', function() {
-      const actual = zoo.animalCount('lions');
-      const expected = 4;
+      let actual = zoo.animalCount('lions');
+      let expected = 4;
 
       assert.deepEqual(actual, expected);
 
