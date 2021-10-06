@@ -17,7 +17,9 @@ function schedule(dayName) {
 }
 
 function animalCount(species) {
-  // your code here
+  let animals = data.animals
+  if (species) return data.animals.find((animal) => animal.name === species).residents.length
+  return data.animals.reduce((agg, animal) => ({...agg, [animal.name]:animal.residents.length}),{})
 }
 
 function animalMap(options) {
