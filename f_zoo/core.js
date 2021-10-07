@@ -24,7 +24,7 @@ function animalCount(species) {
 
 function animalMap(options) {
   let animals = data.animals
-  let locs = ["NE","NW","SE","SW"]
+  let locs = animals.map((animal) => animal.location).filter((value, i, arr) => arr.indexOf(value) === i)
  
   if (options && "includeNames" in options && options.includeNames) {
     return locs.reduce((agg, loc) => ({
@@ -41,7 +41,7 @@ function animalMap(options) {
 }
 
 function animalPopularity(rating) {
-  
+  // your code here
 }
 
 function animalsByIds(ids) {
