@@ -18,16 +18,30 @@ function schedule(dayName) {
 
 function animalCount(species) {
   let animals = data.animals
-  if (species) return data.animals.find((animal) => animal.name === species).residents.length
-  return data.animals.reduce((agg, animal) => ({...agg, [animal.name]:animal.residents.length}),{})
+  if (species) return animals.find((animal) => animal.name === species).residents.length
+  return animals.reduce((agg, animal) => ({...agg, [animal.name]:animal.residents.length}),{})
 }
 
 function animalMap(options) {
-  // your code here
+  let animals = data.animals
+  let locs = ["NE","NW","SE","SW"]
+ 
+  if (options && "includeNames" in options && options.includeNames) {
+    return locs.reduce((agg, loc) => ({
+      ...agg, 
+      [loc]:animals.filter((animal) => animal.location === loc).map((el) => ({
+        [el.name]: el.residents.filter((resident) => (!("sex" in options) || resident.sex === options.sex)).map((resident) => resident.name)
+      }))
+    }), {})
+  }
+  return locs.reduce((agg, loc) => ({
+    ...agg, 
+    [loc]:animals.filter((animal) => animal.location === loc).map((el) => el.name)
+  }), {})  
 }
 
 function animalPopularity(rating) {
-  // your code here
+  
 }
 
 function animalsByIds(ids) {
