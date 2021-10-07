@@ -41,7 +41,10 @@ function animalMap(options) {
 }
 
 function animalPopularity(rating) {
-  // your code here
+  let animals = data.animals
+  let ratings = animals.map((animal) => animal.popularity).filter((value, i, arr) => arr.indexOf(value) === i).sort((a,b) => a-b)
+  if (rating) return animals.filter((animal) => animal.popularity === rating).map((el) => el.name)
+  return ratings.reduce((agg, rating) => ({...agg, [rating]:animals.filter((el) => el.popularity === rating).map((el) => el.name)}), {})
 }
 
 function animalsByIds(ids) {
