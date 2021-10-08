@@ -48,7 +48,9 @@ function animalPopularity(rating) {
 }
 
 function animalsByIds(ids) {
-  // your code here
+  let animals = data.animals
+  if (Array.isArray(ids)) return animals.filter((animal) => [...ids].some((id) => id === animal.id))
+  return animals.filter((animal) => animal.id === ids)
 }
 
 function animalByName(animalName) {
