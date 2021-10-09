@@ -54,7 +54,12 @@ function animalsByIds(ids) {
 }
 
 function animalByName(animalName) {
-  // your code here
+  if (!animalName) return {}
+  let animals = data.animals
+  let animalSpecies = animals.filter((animal) => animal.residents.some((animal) => animal.name === animalName))[0]
+  let animal = animalSpecies.residents.find((res) => res.name === animalName)
+  animal.species = animalSpecies.name
+  return animal
 }
 
 function employeesByIds(ids) {
