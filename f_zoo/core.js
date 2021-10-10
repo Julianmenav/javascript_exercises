@@ -63,7 +63,9 @@ function animalByName(animalName) {
 }
 
 function employeesByIds(ids) {
-  // your code here
+  let employees = data.employees
+  if (Array.isArray(ids)) return employees.filter(employ => [...ids].some(id => id === employ.id))
+  return employees.filter(employ => employ.id === ids)
 }
 
 function employeeByName(employeeName) {
