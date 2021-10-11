@@ -69,9 +69,11 @@ function employeesByIds(ids) {
 }
 
 function employeeByName(employeeName) {
-  // your code here
+  if(!employeeName) return {}
+  let employees = data.employees
+  return employees.filter(employ => employeeName === employ.firstName || employeeName === employ.lastName)[0]
 }
-
+console.log(employeeByName())
 function managersForEmployee(idOrName) {
   // your code here
 }
