@@ -71,11 +71,14 @@ function employeesByIds(ids) {
 function employeeByName(employeeName) {
   if(!employeeName) return {}
   let employees = data.employees
-  return employees.filter(employ => employeeName === employ.firstName || employeeName === employ.lastName)[0]
+  return employees.find(employ => employeeName === employ.firstName || employeeName === employ.lastName)
 }
-console.log(employeeByName())
+
 function managersForEmployee(idOrName) {
-  // your code here
+  let employees = data.employees
+  let employ =  {...employees.find(employ => employ.id === idOrName || employ.firstName === idOrName || employ.lastName === idOrName)}
+  employ.managers = employ.managers.map(id => `${employeesByIds(id)[0].firstName} ${employeesByIds(id)[0].lastName}`)
+  return employ
 }
 
 function employeeCoverage(idOrName) {
