@@ -82,7 +82,14 @@ function managersForEmployee(idOrName) {
 }
 
 function employeeCoverage(idOrName) {
-  // your code here
+  let animals = data.animals
+  let employees = data.employees
+  if (!idOrName) return employees.reduce((agg,el) => ({
+    ...agg ,
+    [`${el.firstName} ${el.lastName}`]: el.responsibleFor.map(id => animals.find(animal => animal.id === id).name)
+  }), {})
+  let employ = {...employees.find(employ => employ.firstName === idOrName || employ.lastName === idOrName || employ.id ===idOrName)}
+  return {[`${employ.firstName} ${employ.lastName}`]: employ.responsibleFor.map(id => animals.find(animal => animal.id === id).name)}
 }
 
 module.exports = {
